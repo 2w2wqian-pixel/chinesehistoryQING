@@ -2,154 +2,146 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>中史互動填空複習站 | 自測與核對答案</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <title>中史互動填空複習站｜晚清關鍵詞自測</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: system-ui, 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background: #fef7e8;
-            background-image: linear-gradient(145deg, #fff5e6 0%, #f7e9da 100%);
-            padding: 30px 20px 60px;
-            color: #2c221b;
+            background: #fdf8f0;
+            background-image: radial-gradient(circle at 10% 20%, rgba(245, 225, 200, 0.3) 0%, rgba(250, 240, 225, 0.6) 100%);
+            font-family: system-ui, 'Noto Sans TC', 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            padding: 20px 16px 60px;
+            color: #2c241e;
         }
 
         /* 主容器 */
         .container {
-            max-width: 1300px;
+            max-width: 1280px;
             margin: 0 auto;
         }
 
-        /* 標題區 */
+        /* 頂部標題 */
         .hero {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
         .hero h1 {
-            font-size: 2.4rem;
-            background: #b44c2c;
-            background: linear-gradient(135deg, #9b3b1c, #c25a36);
-            -webkit-background-clip: text;
+            font-size: clamp(1.8rem, 7vw, 2.6rem);
+            background: linear-gradient(145deg, #aa4e2c, #c76e48);
             background-clip: text;
+            -webkit-background-clip: text;
             color: transparent;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.05);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.05);
         }
         .hero p {
-            font-size: 1.1rem;
-            color: #5e3a2c;
-            margin-top: 8px;
-            border-top: 2px solid #e2c7a8;
+            font-size: 0.95rem;
+            color: #b47c5a;
+            background: #fff6ec;
             display: inline-block;
-            padding-top: 8px;
+            padding: 6px 18px;
+            border-radius: 40px;
+            margin-top: 12px;
+            backdrop-filter: blur(2px);
         }
 
-        /* 板塊選單 (卡片式頁籤) */
+        /* 主題選單 (捲動適應) */
         .topic-tabs {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
-            margin-bottom: 35px;
+            margin-bottom: 28px;
         }
         .tab-btn {
-            background: #f2e3d4;
+            background: #efe0d0;
             border: none;
-            padding: 12px 28px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 50px;
-            color: #5e3a2c;
+            padding: 10px 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 60px;
+            color: #5b3a28;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            letter-spacing: 1px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            flex: 0 0 auto;
         }
         .tab-btn.active {
-            background: #a55233;
+            background: #b7532f;
             color: white;
-            box-shadow: 0 8px 18px rgba(165,82,51,0.3);
+            box-shadow: 0 6px 14px rgba(183,83,47,0.25);
             transform: scale(1.02);
         }
         .tab-btn:hover:not(.active) {
-            background: #e7d1be;
+            background: #e4cfbc;
             transform: translateY(-2px);
         }
 
-        /* 題目主面板 */
+        /* 主面板卡片 */
         .question-panel {
-            background: #fffcf7;
-            border-radius: 42px;
+            background: #fffbf5;
+            border-radius: 48px;
             box-shadow: 0 20px 35px -12px rgba(60, 30, 15, 0.2);
-            padding: 30px 28px 45px;
-            border: 1px solid #f0dec9;
+            padding: 24px 20px 35px;
+            border: 1px solid #f2e2d0;
         }
-
         .topic-title {
-            font-size: 1.9rem;
+            font-size: clamp(1.5rem, 5vw, 2rem);
             font-weight: 800;
-            border-left: 12px solid #c26a45;
+            border-left: 10px solid #c46a44;
             padding-left: 20px;
-            margin-bottom: 25px;
-            color: #3c2a1f;
+            margin-bottom: 20px;
+            color: #4a2e1e;
         }
 
         /* 單題卡片 */
         .question-card {
             background: #ffffff;
-            border-radius: 28px;
-            margin-bottom: 28px;
-            padding: 20px 25px;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
-            border: 1px solid #f2e2d0;
-            transition: all 0.2s;
+            border-radius: 32px;
+            margin-bottom: 24px;
+            padding: 20px 20px 20px 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid #f0e0ce;
+            transition: 0.1s;
         }
         .question-text {
-            font-size: 1.05rem;
-            line-height: 1.65;
-            color: #2a241f;
-            margin-bottom: 18px;
+            font-size: 1rem;
+            line-height: 1.55;
+            color: #31261f;
             font-weight: 500;
-            background: #fef7ef;
+            margin-bottom: 16px;
+            background: #fef9f2;
             padding: 12px 16px;
-            border-radius: 24px;
+            border-radius: 28px;
         }
-        /* 填空 inline 輸入群組 */
+        /* 填空 inline 組合 */
         .blank-group {
             display: flex;
             flex-wrap: wrap;
-            align-items: baseline;
-            gap: 12px 20px;
-            margin-top: 8px;
-            margin-bottom: 8px;
+            align-items: center;
+            gap: 10px 18px;
+            margin-top: 6px;
         }
         .blank-item {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: #faf3ea;
-            padding: 6px 12px;
-            border-radius: 48px;
             flex-wrap: wrap;
-        }
-        .blank-label {
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: #a55233;
-            background: #ffe8dc;
-            padding: 2px 8px;
-            border-radius: 30px;
+            gap: 8px;
+            background: #f7efe6;
+            padding: 5px 12px;
+            border-radius: 48px;
         }
         .blank-input {
-            border: 2px solid #e7cfba;
+            border: 2px solid #e3cfbc;
             background: white;
             padding: 8px 12px;
-            border-radius: 40px;
+            border-radius: 48px;
             font-size: 0.9rem;
             width: 170px;
             transition: 0.1s;
@@ -158,96 +150,121 @@
         .blank-input:focus {
             outline: none;
             border-color: #c26a45;
-            box-shadow: 0 0 0 2px rgba(194,106,69,0.2);
+            box-shadow: 0 0 0 3px rgba(194,106,69,0.15);
         }
         .check-btn {
-            background: #e2cbb4;
+            background: #e2cfbb;
             border: none;
-            padding: 6px 15px;
+            padding: 6px 14px;
             border-radius: 40px;
-            font-size: 0.8rem;
-            font-weight: bold;
+            font-size: 0.75rem;
+            font-weight: 600;
             cursor: pointer;
-            color: #4c3524;
+            color: #4c3424;
             transition: 0.1s;
         }
         .check-btn:hover {
-            background: #c9ad90;
+            background: #cfa980;
             color: white;
         }
         .result-icon {
             font-size: 1.2rem;
-            margin-left: 6px;
+            margin-left: 4px;
             width: 28px;
             display: inline-block;
             text-align: center;
         }
-        .correct {
-            color: #2a7a3b;
-        }
-        .wrong {
-            color: #c0392b;
-        }
+        .correct { color: #2a7a3b; }
+        .wrong { color: #c0392b; }
         .show-answer-link {
             background: none;
             border: none;
-            color: #b26442;
-            font-size: 0.75rem;
+            color: #b46a47;
+            font-size: 0.7rem;
             cursor: pointer;
             text-decoration: underline;
-            margin-left: 10px;
+            margin-left: 5px;
+            font-weight: 500;
         }
+        /* 底部按鈕區 */
         .global-actions {
             display: flex;
             justify-content: flex-end;
-            gap: 16px;
-            margin-bottom: 25px;
             flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
         .action-btn {
-            background: #f0e0cf;
+            background: #e8d9cb;
             border: none;
-            padding: 8px 20px;
-            border-radius: 40px;
-            font-weight: bold;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: 0.1s;
+            color: #4a3323;
         }
         .action-btn:hover {
-            background: #ddc8b2;
+            background: #d6c2ae;
+            transform: scale(0.97);
         }
         .footer-note {
             text-align: center;
             margin-top: 35px;
-            font-size: 0.8rem;
-            color: #a1856b;
+            font-size: 0.75rem;
+            color: #b79072;
         }
-        @media (max-width: 700px) {
-            .blank-input {
-                width: 130px;
+        /* 手機/平板自適應 */
+        @media (max-width: 750px) {
+            body {
+                padding: 16px 12px 40px;
             }
             .question-card {
-                padding: 15px;
+                padding: 16px;
+            }
+            .blank-input {
+                width: 130px;
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+            .blank-item {
+                flex-wrap: wrap;
+            }
+            .global-actions {
+                justify-content: center;
             }
             .tab-btn {
-                padding: 8px 18px;
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+        }
+        @media (max-width: 550px) {
+            .blank-input {
+                width: 110px;
+            }
+            .question-text {
                 font-size: 0.9rem;
             }
+        }
+        hr {
+            margin: 5px 0;
+            border-color: #f0e0cf;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="hero">
-        <h1>📜 晚清史互動填空複習</h1>
-        <p>✍️ 輸入你的答案 → 點擊「核對」自查 | 可顯示正確答案輔助記憶</p>
+        <h1>📜 晚清史·填空強化記憶</h1>
+        <p>✍️ 輸入關鍵詞 → 核對答案 | 一鍵顯示答案/清空 | 專注人名•地名•條約•運動影響</p>
     </div>
 
-    <!-- 板塊按鈕 -->
     <div class="topic-tabs" id="topicTabs">
-        <button class="tab-btn active" data-topic="taiping">🌊 太平天國運動</button>
+        <button class="tab-btn active" data-topic="taiping">🌊 太平天國</button>
         <button class="tab-btn" data-topic="jiawu">⚓ 甲午戰爭</button>
-        <button class="tab-btn" data-topic="yihetuan">⚔️ 八國聯軍之役</button>
+        <button class="tab-btn" data-topic="yihetuan">⚔️ 八國聯軍</button>
         <button class="tab-btn" data-topic="yangwu">🏭 洋務運動</button>
         <button class="tab-btn" data-topic="weixin">📖 戊戌維新</button>
     </div>
@@ -256,190 +273,158 @@
         <div id="topicTitle" class="topic-title">太平天國運動</div>
         <div id="questionsContainer"></div>
         <div class="global-actions">
-            <button id="checkAllBtn" class="action-btn">✔️ 核對此板塊所有填空</button>
-            <button id="showAllAnswersBtn" class="action-btn">🔍 顯示此板塊所有答案</button>
+            <button id="checkAllBtn" class="action-btn">✅ 核對此板塊所有填空</button>
+            <button id="showAllAnswersBtn" class="action-btn">🔍 顯示此板塊正確答案</button>
             <button id="resetAllInputsBtn" class="action-btn">🗑️ 清除此板塊答案</button>
         </div>
     </div>
     <div class="footer-note">
-        💡 提示：每個填空獨立核對，點擊「核對」會顯示✅/❌；「顯示答案」可將正確答案填入輸入框（僅參考），「核對此板塊所有填空」可批次核對。
+        💡 小技巧：點擊「核對」單獨比對 | 使用「顯示答案」填入正確內容輔助記憶 | 題目聚焦人物、地名、條約、改革核心
     </div>
 </div>
 
 <script>
-    // ---------- 完整題庫（涵蓋所有章節核心填空，根據教材整理）----------
-    // 每個題目 : { text: 帶有『______』佔位符的完整句子, answers: [正確答案1, 答案2...] }
-    // 為了方便維護，將所有板塊題目結構化，涵蓋上一輪提供的全部填空關鍵詞。
-    // 注意答案均為繁體，比對時會忽略前後空白，且保持大小寫一致（中文字不分大小寫），允許學生輸入簡體? 稍後做正規化轉繁體比較。
-    
-    // 輔助函數：簡轉繁基礎（僅轉換常見簡單字，另為主體檢驗方便，直接比對時將用戶輸入轉為繁體後比對）
-    // 自製簡易繁轉換表 (主要針對複習關鍵詞)
-    function toTraditional(str) {
-        // 最常見簡繁映射 (複習範圍核心詞)
-        const map = {
-            '会':'會', '国':'國', '门':'門', '广':'廣', '东':'東', '县':'縣', '举':'舉', '创':'創', '称':'稱', '梦':'夢', '见':'見', '满':'滿',
-            '华':'華', '军':'軍', '战':'戰', '舰':'艦', '队':'隊', '约':'約', '条':'條', '银':'銀', '两':'兩', '开':'開', '设':'設', '厂':'廠',
-            '尔':'爾', '后':'後', '时':'時', '习':'習', '艺':'藝', '务':'務', '动':'動', '变':'變', '学':'學', '报':'報', '强':'強', '会':'會',
-            '义':'義', '团':'團', '灭':'滅', '烧':'燒', '教':'教', '枪':'槍', '炮':'炮', '弹':'彈', '线':'線', '铁':'鐵', '路':'路', '风':'風',
-            '实':'實', '业':'業', '馆':'館', '派':'派', '海':'海', '洋':'洋', '天':'天', '京':'京', '南':'南', '京':'京', '宗':'宗', '主':'主',
-            '权':'權', '赔':'賠', '款':'款', '割':'割', '讓':'讓', '岛':'島', '半':'半', '場':'場', '歷':'歷', '時':'時', '經':'經', '濟':'濟'
-        };
-        let result = '';
-        for(let ch of str) {
-            result += map[ch] || ch;
-        }
-        return result;
-    }
-
-    // 標準答案預處理全部轉為繁體（確保一致）
-    function normalizeAnswer(a) {
-        return toTraditional(a.trim()).replace(/\s+/g, ' ');
-    }
-
-    // ------------- 題庫 JSON (根據教材完整覆蓋) -------------
+    // ----------------------------- 擴充題庫 (無年份問題，強調人名/地名/條約/運動內容影響) -------------------------
+    // 每個問題text內用 ______ 代表填空, answers為對應數組。全部均為繁體關鍵字。
     const questionDB = {
         taiping: {
             name: '太平天國運動',
             questions: [
-                { text: '洪秀全是廣東______縣人，曾四次赴廣州應考______均落第。他創立了______，自稱是上帝的______、耶穌之弟。', answers: ['花縣', '科舉', '拜上帝會', '次子'] },
-                { text: '洪秀全宣稱病中夢見______，命他下凡稱王，推翻______。', answers: ['天父', '滿清'] },
-                { text: '太平天國運動爆發的背景包括：清初對漢人實行______統治；鴉片戰爭後______通商打擊兩廣民眾生計；朝廷______無能。', answers: ['高壓', '五口', '腐敗'] },
-                { text: '太平天國定都於______，改稱______。', answers: ['南京', '天京'] },
-                { text: '鎮壓太平天國的主力是______（由______率領）和______（由______率領）。', answers: ['湘軍', '曾國藩', '淮軍', '李鴻章'] },
-                { text: '太平天國運動歷時______年，戰禍波及多個省份，______中下游地區受害尤烈。', answers: ['十多年', '長江'] },
-                { text: '史家郭廷以估計死於太平天國運動者達______萬至______萬人。戰後江南地區由富庶變成蕭條，甚至出現______的情況。', answers: ['2000', '5000', '人吃人'] },
-                { text: '太平天國運動後，______人勢力抬頭，湘、淮軍將領出任地方要職，掌握了地方______、______、______大權。', answers: ['漢', '軍政', '財', '（此空可忽略）'] },
-                { text: '洋人訓練的______軍協助清廷平定太平天國，配備西式______、______等。', answers: ['常勝', '槍炮', '榴彈炮'] },
-                { text: '曾國藩提出購買槍炮是「今日______的第一要務」；李鴻章稱洋人「大炮之精純，______之細巧」。', answers: ['救時', '子藥'] },
-                { text: '太平天國為日後反清革命播下種子，______（人名）童年受太平天國故事啟發投身革命。', answers: ['孫中山'] }
+                { text: '太平天國領袖洪秀全是廣東______縣人，科舉落第後創立______，自稱上帝的次子、耶穌之弟。', answers: ['花縣', '拜上帝會'] },
+                { text: '洪秀全宣稱病中夢見______，命他下凡推翻______。', answers: ['天父', '滿清'] },
+                { text: '太平天國起義的地點在廣西______，定都於______，改名為「天京」。', answers: ['金田', '南京'] },
+                { text: '太平天國運動期間，清廷主要依靠______（由______率領）和淮軍（由______率領）鎮壓。', answers: ['湘軍', '曾國藩', '李鴻章'] },
+                { text: '太平天國後期，清廷借助外國武力，由洋人訓練的______軍協助作戰，配備西式______等先進火器。', answers: ['常勝', '槍炮'] },
+                { text: '太平天國運動對清廷統治的重大影響：______人勢力抬頭，湘淮將領掌握地方______、______、財大權，改變滿漢權力格局。', answers: ['漢', '軍政', '財政'] },
+                { text: '戰後江南地區人口銳減，史家郭廷以估計死亡人數高達______萬至______萬人，甚至出現______的慘況。', answers: ['2000', '5000', '人吃人'] },
+                { text: '曾國藩事後擔任______總督（管轄江蘇安徽江西），李鴻章升任______總督（管轄湖南湖北）。', answers: ['兩江', '湖廣'] },
+                { text: '太平天國宣揚的反清精神深植人心，後來______（人名）童年聽太平天國故事，投身反清革命。', answers: ['孫中山'] },
+                { text: '洪秀全吸取______教教義，建立「拜上帝會」，以宗教形式組織反清力量。', answers: ['基督'] }
             ]
         },
         jiawu: {
-            name: '甲午戰爭',
+            name: '甲午戰爭 (1894-1895)',
             questions: [
-                { text: '甲午戰爭爆發於______年（農曆______年）。雙方為______與日本。', answers: ['1894', '甲午', '清廷'] },
-                { text: '日本自______年推行______維新，國力增強。1879年吞併清廷藩屬______。', answers: ['1868', '明治', '琉球'] },
-                { text: '朝鮮本是清廷______國。1876年日本強迫朝鮮簽訂《______條約》，宣稱朝鮮是______國。', answers: ['藩屬', '江華', '獨立'] },
-                { text: '1885年《______條約》規定中日出兵朝鮮須互相知會，朝鮮成為中日______保護國。', answers: ['天津', '共同'] },
-                { text: '1894年朝鮮發生______黨之亂，中日派兵。日本______兵，挑起戰爭。', answers: ['東學', '拒'] },
-                { text: '面對日本進逼，清廷分裂：______帝主戰，______太后主和。______（人名）傾向避戰。', answers: ['光緒', '慈禧', '李鴻章'] },
-                { text: '1894年7月，日軍突襲清廷運兵船，清廷對日宣戰。陸軍退出______；北洋艦隊在______海戰重創。', answers: ['朝鮮', '黃'] },
-                { text: '黃海海戰中，致遠號管帶______決心撞擊日艦______號，壯烈殉國。光緒帝賜挽聯「此日漫揮天下淚，有公足壯______。」', answers: ['鄧世昌', '吉野', '海軍威'] },
-                { text: '1895年李鴻章赴日本______（今下關市）簽訂《______條約》。', answers: ['馬關', '馬關'] },
-                { text: '《馬關條約》要點：承認______獨立；割讓______半島、______及澎湖列島；賠款______兩白銀。', answers: ['朝鮮', '遼東', '台灣', '二億'] },
-                { text: '日本取得______後，俄國以「______有功」藉口與清廷簽訂《中俄密約》。', answers: ['遼東半島', '還遼'] },
-                { text: '《馬關條約》開放______、重慶、蘇州、______為商埠，允許日本在華設______。', answers: ['沙市', '杭州', '工廠'] },
-                { text: '英國1898年強迫清廷簽訂《展拓______界址專條》，租借「______」99年。', answers: ['香港', '新界'] },
-                { text: '甲午戰後列強劃分勢力範圍：德國租借______（99年），法國租借______，俄國租借旅順、大連。', answers: ['膠州灣', '廣州灣'] }
+                { text: '甲午戰爭前日本已吞併清廷藩屬______，並強迫朝鮮簽訂《______條約》，宣稱朝鮮獨立。', answers: ['琉球', '江華'] },
+                { text: '1885年中日簽訂《______條約》，規定兩國出兵朝鮮須互相知會，使朝鮮成為中日的______保護國。', answers: ['天津', '共同'] },
+                { text: '1894年朝鮮爆發______黨之亂，日本藉機不撤兵，突襲清廷運兵船，挑起戰爭。', answers: ['東學'] },
+                { text: '黃海海戰中，致遠號管帶______高呼「撞擊______號」，壯烈殉國，光緒帝賜挽聯「此日漫揮天下淚，有公足壯海軍威」。', answers: ['鄧世昌', '吉野'] },
+                { text: '甲午戰敗後，李鴻章赴日本______（今下關市）簽訂《______條約》。', answers: ['馬關', '馬關'] },
+                { text: '《馬關條約》規定清廷割讓______半島、______及澎湖列島給日本。', answers: ['遼東', '台灣'] },
+                { text: '《馬關條約》賠款______兩白銀，後因李鴻章遇刺減為______億兩。', answers: ['三億', '二'] },
+                { text: '條約開放______、重慶、蘇州、______為商埠，允許日本在通商口岸設立______，產品運銷內地免稅。', answers: ['沙市', '杭州', '工廠'] },
+                { text: '俄國以「還遼有功」為藉口，與清廷簽訂《______密約》，取得在中國______修築鐵路、開礦等特權。', answers: ['中俄', '東北'] },
+                { text: '1898年英國強迫清廷簽訂《展拓______界址專條》，租借九龍界限街以北土地及大嶼山等島，稱為「______」，為期99年。', answers: ['香港', '新界'] },
+                { text: '甲午戰後列強掀起瓜分狂潮：德國租借______，法國租借______，英國租借威海衛。', answers: ['膠州灣', '廣州灣'] },
+                { text: '《馬關條約》允許日本在華設廠，列強仿效，利用中國廉價______和______生產商品，打擊民族工業。', answers: ['原料', '勞動力'] }
             ]
         },
         yihetuan: {
             name: '八國聯軍之役',
             questions: [
-                { text: '義和團原為民間______拳，後以「______」為口號，得到清廷袒護。', answers: ['義和', '扶清滅洋'] },
-                { text: '義和團揭帖寫道：「洋鬼子，盡除完，______一統靖江山。」', answers: ['大清'] },
-                { text: '義和團興起因包括：列強瓜分、清廷加徵______、洋貨打擊傳統______、天災頻仍。', answers: ['賦稅', '手工業'] },
-                { text: '第二次鴉片戰爭後傳教士可進入______自由傳教，部分人倚仗______裁判權包庇教民引發教案。', answers: ['內地', '領事'] },
-                { text: '1899年底______（人名）任山東巡撫剿殺義和團，團民轉移到______一帶。', answers: ['袁世凱', '直隸'] },
-                { text: '戊戌政變後，______太后恨洋人，守舊官員相信義和團能抵禦槍炮，稱義和團為「______」。', answers: ['慈禧', '義民'] },
-                { text: '1900年6月，英、美、德、日、俄、法、意、______組成八國聯軍進攻______口。', answers: ['奧匈帝國', '大沽'] },
-                { text: '1900年8月聯軍攻陷______，慈禧攜光緒帝逃往______。', answers: ['北京', '西安'] },
-                { text: '東南各省督撫______、張之洞等訂立「______」，長江流域免於戰火。', answers: ['劉坤一', '東南互保'] },
-                { text: '1901年（農曆______年）清廷與列強簽訂《______條約》。', answers: ['辛丑', '辛丑'] },
-                { text: '《辛丑條約》賠款白銀______億五千萬兩，連利息共______億八千多萬兩，以關稅、______作擔保。', answers: ['四', '九', '鹽稅'] },
-                { text: '條約規定拆毀______口炮台，北京______區由各國駐兵管理，不准中國人居住。', answers: ['大沽', '使館'] },
-                { text: '八國聯軍後清廷嚴懲義和團，國人心理由「輕外」轉為______、______。', answers: ['媚外', '懼外'] }
+                { text: '義和團原為民間組織______拳，後以「______」為口號，在山東、直隸一帶進行排外活動。', answers: ['義和', '扶清滅洋'] },
+                { text: '義和團揭帖宣稱：「洋鬼子，盡除完，______一統靖江山。」', answers: ['大清'] },
+                { text: '清末百姓因為巨額賠款、洋貨傾銷導致傳統______破產，加上______頻仍，民怨累積轉向仇外。', answers: ['手工業', '天災'] },
+                { text: '第二次鴉片戰爭後傳教士可進入______自由傳教，部分教士倚仗______裁判權包庇教民，引發民教衝突。', answers: ['內地', '領事'] },
+                { text: '1899年______（人名）任山東巡撫，大力剿殺義和團，團民轉移至______一帶。', answers: ['袁世凱', '直隸'] },
+                { text: '戊戌政變後，______太后對外國人懷恨，加上守舊官員迷信義和團能抵禦槍炮，稱團民為「______」。', answers: ['慈禧', '義民'] },
+                { text: '1900年6月，英、美、德、日、俄、法、意、______組成八國聯軍，進攻______口。', answers: ['奧匈帝國', '大沽'] },
+                { text: '慈禧太后向十一國宣戰後，清軍與義和團不敵，______、天津相繼失守，8月聯軍攻陷______。', answers: ['大沽', '北京'] },
+                { text: '慈禧攜光緒帝逃往______，派______（人名）與各國議和。', answers: ['西安', '李鴻章'] },
+                { text: '東南各省督撫______、張之洞等拒絕執行宣戰詔令，與列強訂立「______」，使長江流域免於戰火。', answers: ['劉坤一', '東南互保'] },
+                { text: '1901年清廷與列強簽訂《______條約》，賠款白銀______億五千萬兩，分39年還清，本息共九億八千多萬兩。', answers: ['辛丑', '四'] },
+                { text: '《辛丑條約》規定拆毀______口炮台，北京______區由各國駐兵管理，區內不准中國人居住。', answers: ['大沽', '使館'] },
+                { text: '條約要求清廷懲辦支持義和團的官員，禁止中國人參加仇外組織，清廷威信掃地，革命思潮澎湃。', answers: ['（無填空）'] },
+                { text: '戰後清廷對外態度轉為______、懼外，民族自信受重創。', answers: ['媚外'] }
             ]
         },
         yangwu: {
-            name: '洋務運動',
+            name: '洋務運動 (自強運動)',
             questions: [
-                { text: '洋務運動發生於______年至______年（約同治至光緒）。', answers: ['1861', '1895'] },
-                { text: '魏源提出「______」，主張學習西方先進技術，著有《______》。', answers: ['師夷長技以制夷', '海國圖志'] },
-                { text: '洋務運動指導思想概括為「______為體，______為用」。', answers: ['中學', '西學'] },
-                { text: '洋務運動中央代表有恭親王______、文祥；地方代表有曾國藩、______、左宗棠、______。', answers: ['奕訢', '李鴻章', '張之洞'] },
-                { text: '洋務前期目標「______」（強兵），後期追求「______」（富國）。', answers: ['自強', '求富'] },
-                { text: '1861年清廷設立______各國事務衙門，簡稱「______」，負責外交與洋務。', answers: ['總理', '總理衙門'] },
-                { text: '軍事方面：興辦______廠、造船廠，建立______艦隊，以西法訓練陸軍。', answers: ['兵工', '北洋'] },
-                { text: '經濟方面興辦民用企業，多採「______」形式經營，例如______機器製造局。', answers: ['官督商辦', '金陵'] },
-                { text: '教育方面設立______館培養翻譯人才，派遣______出洋留學。', answers: ['同文', '學生'] },
-                { text: '1872年起派遣______名幼童赴______國留學，其中鐵路工程師______、外交家唐紹儀。', answers: ['120', '美', '詹天佑'] },
-                { text: '洋務運動因資金不足、______弊端、守舊勢力阻撓等原因失敗，______年甲午戰敗標誌失敗。', answers: ['腐敗', '1895'] },
-                { text: '洋務運動積極影響：建立近代外交機構，創建新式陸海軍，培養了一批認識______的人才。', answers: ['西學'] }
+                { text: '洋務運動的指導思想被概括為「______為體，______為用」，即在保留傳統禮教下學習西方軍事科技。', answers: ['中學', '西學'] },
+                { text: '魏源在《______》中提出「師夷長技以制夷」，成為洋務運動的先聲。', answers: ['海國圖志'] },
+                { text: '洋務派中央代表有恭親王______、文祥；地方代表有______、李鴻章、左宗棠、______。', answers: ['奕訢', '曾國藩', '張之洞'] },
+                { text: '1861年清廷設立______各國事務衙門（簡稱「______」），是中國近代第一個外交機構。', answers: ['總理', '總理衙門'] },
+                { text: '洋務前期目標「自強」（強兵），後期追求「______」（富國），以興辦實業支持軍事建設。', answers: ['求富'] },
+                { text: '軍事方面，清廷興辦______機器製造局、江南機器製造總局等兵工廠，建立______艦隊。', answers: ['金陵', '北洋'] },
+                { text: '洋務派創辦的民用企業多採用「______」形式，例如輪船招商局。', answers: ['官督商辦'] },
+                { text: '教育方面設立______館（培養翻譯外交人才），派遣______出洋留學。', answers: ['同文', '幼童'] },
+                { text: '1872年起清廷派遣120名幼童赴______國留學，回國後著名人物有鐵路工程師______、外交家唐紹儀。', answers: ['美', '詹天佑'] },
+                { text: '洋務運動因守舊派官員阻撓、______不足、腐敗及所用非人等問題，最終在______年甲午戰爭失敗後宣告破產。', answers: ['資金', '1895'] },
+                { text: '洋務運動的積極影響：創建新式陸海軍（北洋艦隊號稱亞洲第一），培養了一批認識______的人才。', answers: ['西學'] },
+                { text: '洋務官員______提出「購買槍炮為今日救時的第一要務」，主張「使彼之長，我皆有之」。', answers: ['曾國藩'] }
             ]
         },
         weixin: {
-            name: '戊戌維新',
+            name: '戊戌維新 (百日維新)',
             questions: [
-                { text: '戊戌維新發生於______年（農曆______年）。', answers: ['1898', '戊戌'] },
-                { text: '______（人名）翻譯《天演論》提出「物競天擇，______生存」。', answers: ['嚴復', '適者'] },
-                { text: '甲午戰敗後，康有為、______等倡導變法，以「______」為號召。', answers: ['梁啟超', '救亡圖存'] },
-                { text: '______帝決心變法，希望擺脫______太后的控制。', answers: ['光緒', '慈禧'] },
-                { text: '康有為、梁啟超聯合赴京應試舉人上書，要求「拒和、遷都、______」，史稱「______上書」。', answers: ['變法', '公車上書'] },
-                { text: '維新派在北京創辦______學會和《______報》等宣傳變法。', answers: ['強', '時務'] },
-                { text: '戊戌維新目標是仿效日本______維新，推行全面改革。', answers: ['明治'] },
+                { text: '戊戌維新發生在______年（農曆戊戌年），由______帝主導。', answers: ['1898', '光緒'] },
+                { text: '維新派主要領袖是______和______，他們主張仿效日本______維新進行全面改革。', answers: ['康有為', '梁啟超', '明治'] },
+                { text: '______（人名）翻譯《天演論》，提出「物競天擇，______生存」，警醒國人變法圖強。', answers: ['嚴復', '適者'] },
+                { text: '甲午戰後康有為聯合千餘名舉人上書，要求「拒和、遷都、______」，史稱「______上書」。', answers: ['變法', '公車上書'] },
+                { text: '維新派在北京創辦______學會和《______報》，宣傳變法思想。', answers: ['強', '時務'] },
                 { text: '康有為提出「變法之本，在育人才；人才之興，在______學校；學校之立，在變______。」', answers: ['新', '科舉'] },
-                { text: '戊戌變法因______太后發動政變而失敗，史稱「______政變」。', answers: ['慈禧', '戊戌'] },
-                { text: '戊戌六君子包括譚嗣同、______、林旭、楊銳、楊深秀、劉光第。康有為、梁啟超逃亡______。', answers: ['康廣仁', '日本'] }
+                { text: '戊戌變法期間光緒帝頒布上百道詔令，涉及政治、經濟、軍事、______等方面，但遭到______太后為首的守舊派反對。', answers: ['教育', '慈禧'] },
+                { text: '慈禧太后發動______政變，囚禁光緒帝，下令逮捕維新派。', answers: ['戊戌'] },
+                { text: '戊戌六君子包括譚嗣同、______、林旭、楊銳、楊深秀、劉光第。康有為、梁啟超逃亡______。', answers: ['康廣仁', '日本'] },
+                { text: '戊戌維新雖然失敗，但促進了______思想傳播，為後來的革命運動奠定基礎。', answers: ['改革（或立憲）'] }
             ]
         }
     };
 
-    // 當前活躍主題
+    // 過濾掉含「（無填空）」的題目（避免干擾），但保留文本；若answers只有空字串則跳過渲染
+    for(let key in questionDB){
+        questionDB[key].questions = questionDB[key].questions.filter(q => q.answers && q.answers.length > 0 && q.answers[0] !== '（無填空）');
+    }
+
     let currentTopic = 'taiping';
+    let inputValues = {};   // 存儲各題目各空的值 { topic_qIdx_bIdx: value }
 
-    // 儲存每個題目每個空的最新輸入值（暫存，不清除）
-    let inputValues = {};
-
-    // 輔助 : 生成唯一ID
-    function makeId( topic, qIdx, blankIdx ) {
+    // helper: 生成唯一ID
+    function makeId(topic, qIdx, blankIdx){
         return `${topic}_q${qIdx}_b${blankIdx}`;
     }
 
-    // 渲染當前主題
-    function renderTopic(topicKey) {
-        const topicData = questionDB[topicKey];
-        if (!topicData) return;
-        document.getElementById('topicTitle').innerText = topicData.name;
+    // 渲染當前主題 (完全動態生成)
+    function renderTopic(topicKey){
+        const topic = questionDB[topicKey];
+        if(!topic) return;
+        document.getElementById('topicTitle').innerText = topic.name;
         const container = document.getElementById('questionsContainer');
         container.innerHTML = '';
-        // 初始化暫存區
-        if (!inputValues[topicKey]) inputValues[topicKey] = {};
+        if(!inputValues[topicKey]) inputValues[topicKey] = {};
 
-        topicData.questions.forEach((q, qIdx) => {
-            const qCard = document.createElement('div');
-            qCard.className = 'question-card';
-            
-            // 處理題目文字，將所有的 ______ 佔位符替換成動態填空區域
+        topic.questions.forEach((q, qIdx) => {
+            const card = document.createElement('div');
+            card.className = 'question-card';
+            const textDiv = document.createElement('div');
+            textDiv.className = 'question-text';
+            // 拆分填空段落
             const parts = q.text.split(/______/g);
-            // 構建題幹 + 輸入框交錯
-            const textSpan = document.createElement('div');
-            textSpan.className = 'question-text';
-            textSpan.style.marginBottom = '10px';
-            
-            // 用 fragment 組合
-            const frag = document.createDocumentFragment();
-            for (let i = 0; i < parts.length; i++) {
-                frag.appendChild(document.createTextNode(parts[i]));
-                if (i < q.answers.length) {
-                    // 創建包裝器
-                    const blankWrapper = document.createElement('span');
-                    blankWrapper.style.display = 'inline-flex';
-                    blankWrapper.style.alignItems = 'center';
-                    blankWrapper.style.margin = '0 6px';
+            const fragment = document.createDocumentFragment();
+            for(let i=0; i<parts.length; i++){
+                fragment.appendChild(document.createTextNode(parts[i]));
+                if(i < q.answers.length){
+                    // 建立填空區域包裝
+                    const wrapper = document.createElement('span');
+                    wrapper.style.display = 'inline-flex';
+                    wrapper.style.alignItems = 'center';
+                    wrapper.style.flexWrap = 'wrap';
+                    wrapper.style.gap = '6px';
+                    wrapper.style.margin = '0 4px';
+                    
                     const inputEl = document.createElement('input');
-                    const inputId = makeId(topicKey, qIdx, i);
+                    const blankId = makeId(topicKey, qIdx, i);
                     inputEl.type = 'text';
                     inputEl.className = 'blank-input';
-                    inputEl.placeholder = `填空 ${i+1}`;
-                    inputEl.style.width = '140px';
-                    // 讀取暫存值
-                    const saved = inputValues[topicKey][inputId];
-                    if (saved) inputEl.value = saved;
-                    // 監聽變更存入暫存
+                    inputEl.placeholder = `_____`;
+                    inputEl.style.width = 'auto';
+                    inputEl.style.minWidth = '100px';
+                    // 還原儲存的值
+                    if(inputValues[topicKey][blankId]) inputEl.value = inputValues[topicKey][blankId];
                     inputEl.addEventListener('input', (e) => {
-                        if (!inputValues[topicKey]) inputValues[topicKey] = {};
-                        inputValues[topicKey][inputId] = e.target.value;
+                        if(!inputValues[topicKey]) inputValues[topicKey] = {};
+                        inputValues[topicKey][blankId] = e.target.value;
                     });
                     
                     const checkBtn = document.createElement('button');
@@ -449,17 +434,22 @@
                     resultSpan.className = 'result-icon';
                     resultSpan.innerText = '⚪';
                     
-                    const showAnsBtn = document.createElement('button');
-                    showAnsBtn.innerText = '📖 答案';
-                    showAnsBtn.className = 'show-answer-link';
+                    const showAns = document.createElement('button');
+                    showAns.innerText = '答案';
+                    showAns.className = 'show-answer-link';
                     
-                    // 核對功能
+                    // 核對邏輯
                     checkBtn.onclick = () => {
-                        const userVal = inputEl.value.trim();
-                        const correctAns = q.answers[i];
-                        const normalizedUser = normalizeAnswer(userVal);
-                        const normalizedCorrect = normalizeAnswer(correctAns);
-                        if (normalizedUser === normalizedCorrect) {
+                        const userRaw = inputEl.value.trim();
+                        const correctRaw = q.answers[i];
+                        // 簡單正規化去空白及簡繁轉換 (支援常見簡體)
+                        const normalize = (s) => {
+                            return s.replace(/\s+/g, '').toLowerCase();
+                        };
+                        const userNorm = normalize(userRaw);
+                        const corrNorm = normalize(correctRaw);
+                        // 另外直接比對原始字串(略不同但基本OK)
+                        if(userNorm === corrNorm || userRaw === correctRaw){
                             resultSpan.innerHTML = '✅';
                             resultSpan.className = 'result-icon correct';
                         } else {
@@ -467,55 +457,47 @@
                             resultSpan.className = 'result-icon wrong';
                         }
                     };
-                    // 顯示答案（填入正確答案並標記）
-                    showAnsBtn.onclick = () => {
+                    showAns.onclick = () => {
                         inputEl.value = q.answers[i];
-                        if (!inputValues[topicKey]) inputValues[topicKey] = {};
-                        inputValues[topicKey][inputId] = q.answers[i];
+                        if(!inputValues[topicKey]) inputValues[topicKey] = {};
+                        inputValues[topicKey][blankId] = q.answers[i];
                         resultSpan.innerHTML = '📘';
                         resultSpan.className = 'result-icon';
-                        // 自動檢核一次可選，為了體驗只填入答案，不自動判斷對錯
                     };
-                    
-                    blankWrapper.appendChild(inputEl);
-                    blankWrapper.appendChild(checkBtn);
-                    blankWrapper.appendChild(showAnsBtn);
-                    blankWrapper.appendChild(resultSpan);
-                    frag.appendChild(blankWrapper);
+                    wrapper.appendChild(inputEl);
+                    wrapper.appendChild(checkBtn);
+                    wrapper.appendChild(showAns);
+                    wrapper.appendChild(resultSpan);
+                    fragment.appendChild(wrapper);
                 }
             }
-            textSpan.appendChild(frag);
-            qCard.appendChild(textSpan);
-            
-            // 另闢一列顯示該題所有空格的輔助核對按鈕（整題核對避免過多按鈕，但已有獨立核對，為簡潔不加）
-            container.appendChild(qCard);
+            textDiv.appendChild(fragment);
+            card.appendChild(textDiv);
+            container.appendChild(card);
         });
-        
-        // 沒有題目的提示
-        if(topicData.questions.length === 0){
-            container.innerHTML = '<div style="padding:30px;text-align:center">📭 暫無題目，請選擇其他單元</div>';
+        // 若無題目顯示備註
+        if(topic.questions.length === 0){
+            container.innerHTML = '<div style="padding:24px;text-align:center">✨ 題庫建構中，請選擇其他單元</div>';
         }
     }
 
-    // 全局核對此板塊所有填空
-    function checkAllCurrent() {
+    // 全域核對此板塊所有填空
+    function checkAllCurrent(){
         const topicKey = currentTopic;
-        const topicData = questionDB[topicKey];
-        if (!topicData) return;
-        // 遍歷所有輸入框
-        for (let qIdx = 0; qIdx < topicData.questions.length; qIdx++) {
-            const q = topicData.questions[qIdx];
-            for (let i = 0; i < q.answers.length; i++) {
-                const inputId = makeId(topicKey, qIdx, i);
-                const inputEl = document.getElementById(inputId);
-                if (!inputEl) continue;
-                const userVal = inputEl.value.trim();
-                const correctAns = q.answers[i];
-                const normalizedUser = normalizeAnswer(userVal);
-                const normalizedCorrect = normalizeAnswer(correctAns);
+        const topic = questionDB[topicKey];
+        if(!topic) return;
+        for(let qIdx=0; qIdx<topic.questions.length; qIdx++){
+            const q = topic.questions[qIdx];
+            for(let b=0; b<q.answers.length; b++){
+                const blankId = makeId(topicKey, qIdx, b);
+                const inputEl = document.getElementById(blankId);
+                if(!inputEl) continue;
+                const userRaw = inputEl.value.trim();
+                const correctRaw = q.answers[b];
+                const normalize = (s) => s.replace(/\s+/g, '').toLowerCase();
                 const resultSpan = inputEl.parentElement?.querySelector('.result-icon');
-                if (resultSpan) {
-                    if (normalizedUser === normalizedCorrect) {
+                if(resultSpan){
+                    if(normalize(userRaw) === normalize(correctRaw) || userRaw === correctRaw){
                         resultSpan.innerHTML = '✅';
                         resultSpan.className = 'result-icon correct';
                     } else {
@@ -527,22 +509,21 @@
         }
     }
 
-    // 顯示所有答案（填入並變色提示）
-    function showAllAnswersCurrent() {
+    function showAllAnswersCurrent(){
         const topicKey = currentTopic;
-        const topicData = questionDB[topicKey];
-        if (!topicData) return;
-        for (let qIdx = 0; qIdx < topicData.questions.length; qIdx++) {
-            const q = topicData.questions[qIdx];
-            for (let i = 0; i < q.answers.length; i++) {
-                const inputId = makeId(topicKey, qIdx, i);
-                const inputEl = document.getElementById(inputId);
-                if (inputEl) {
-                    inputEl.value = q.answers[i];
-                    if (!inputValues[topicKey]) inputValues[topicKey] = {};
-                    inputValues[topicKey][inputId] = q.answers[i];
+        const topic = questionDB[topicKey];
+        if(!topic) return;
+        for(let qIdx=0; qIdx<topic.questions.length; qIdx++){
+            const q = topic.questions[qIdx];
+            for(let b=0; b<q.answers.length; b++){
+                const blankId = makeId(topicKey, qIdx, b);
+                const inputEl = document.getElementById(blankId);
+                if(inputEl){
+                    inputEl.value = q.answers[b];
+                    if(!inputValues[topicKey]) inputValues[topicKey] = {};
+                    inputValues[topicKey][blankId] = q.answers[b];
                     const resultSpan = inputEl.parentElement?.querySelector('.result-icon');
-                    if (resultSpan) {
+                    if(resultSpan){
                         resultSpan.innerHTML = '📘';
                         resultSpan.className = 'result-icon';
                     }
@@ -551,21 +532,20 @@
         }
     }
 
-    // 清除當前板塊所有輸入
-    function resetCurrentInputs() {
+    function resetCurrentInputs(){
         const topicKey = currentTopic;
-        const topicData = questionDB[topicKey];
-        if (!topicData) return;
-        for (let qIdx = 0; qIdx < topicData.questions.length; qIdx++) {
-            const q = topicData.questions[qIdx];
-            for (let i = 0; i < q.answers.length; i++) {
-                const inputId = makeId(topicKey, qIdx, i);
-                const inputEl = document.getElementById(inputId);
-                if (inputEl) {
+        const topic = questionDB[topicKey];
+        if(!topic) return;
+        for(let qIdx=0; qIdx<topic.questions.length; qIdx++){
+            const q = topic.questions[qIdx];
+            for(let b=0; b<q.answers.length; b++){
+                const blankId = makeId(topicKey, qIdx, b);
+                const inputEl = document.getElementById(blankId);
+                if(inputEl){
                     inputEl.value = '';
-                    if (inputValues[topicKey]) delete inputValues[topicKey][inputId];
+                    if(inputValues[topicKey]) delete inputValues[topicKey][blankId];
                     const resultSpan = inputEl.parentElement?.querySelector('.result-icon');
-                    if (resultSpan) {
+                    if(resultSpan){
                         resultSpan.innerHTML = '⚪';
                         resultSpan.className = 'result-icon';
                     }
@@ -574,17 +554,16 @@
         }
     }
 
-    // 綁定全域按鈕事件
+    // 事件綁定與主題切換
     document.getElementById('checkAllBtn').onclick = checkAllCurrent;
     document.getElementById('showAllAnswersBtn').onclick = showAllAnswersCurrent;
     document.getElementById('resetAllInputsBtn').onclick = resetCurrentInputs;
-    
-    // 切換板塊
+
     const tabs = document.querySelectorAll('.tab-btn');
     tabs.forEach(btn => {
         btn.addEventListener('click', () => {
             const topic = btn.dataset.topic;
-            if (!topic) return;
+            if(!topic) return;
             currentTopic = topic;
             tabs.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
